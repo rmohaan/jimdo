@@ -66,7 +66,7 @@
   font-size: smaller;
 }
 
-form {
+.form {
   color: #4e75b9;
   margin-top: 20px;
 }
@@ -74,14 +74,17 @@ form {
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #4e75b9;
     opacity: 1; /* Firefox */
+    font: normal 18px/1.5 'Lora', serif;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: #4e75b9;
+    font: normal 18px/1.5 'Lora', serif;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: #4e75b9;
+    font: normal 18px/1.5 'Lora', serif;
 }
 
 @media only screen and (max-width: 600px)  {

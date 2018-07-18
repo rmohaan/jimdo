@@ -1,7 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { submitData } from '../../actions/index';
 import './index.css';
 
-export default class Form extends React.Component {
+class Form extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -19,13 +22,15 @@ export default class Form extends React.Component {
   
     handleSubmit = (event) => {
       alert('A name was submitted: ' + this.state.name);
-      event.preventDefault();
+      this.props.dispatch(submitData());
+     // event.preventDefault();
     }
   
     render() {
+      const {isLoading} = this.props;
+      console.log("from form", isLoading);
       return (
-        
-        <form onSubmit={this.handleSubmit}>
+        <div className="form">
         <ul className="flex-outer">
             <li>
               <label htmlFor="first-name">Name</label>
@@ -45,18 +50,26 @@ export default class Form extends React.Component {
             </li>
             <li>
               <label htmlFor="message">Message</label>
-              <textarea rows="6" 
+              <textarea rows="3" 
                         id="message" 
                         value={this.state.message} 
                         onChange={this.handleChange('message')}
                         placeholder="Enter your message here" />
             </li>
             <li>
-              <button type="submit">Submit</button>
+              <button onClick={this.handleSubmit}>Submit</button>
             </li>
           </ul>
-        </form>
-        
+        </div>
       );
     }
-  }
+}
+
+const mapStateToProps = ({ data, isLoading}) =>
+    ({ data, isLoading });
+
+Form.propTypes = {
+  isLoading: PropTypes.bool
+};  
+
+export default connect(mapStateToProps)(Form);

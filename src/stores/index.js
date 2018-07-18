@@ -6,8 +6,9 @@ import * as reducers from '../reducers/index';
 import defaultState from './defaultState';
 
 const reducer = combineReducers({
-  rooms: reducers.roomsData,
-  filterData: reducers.filterData,
+  data: reducers.data,
+  isLoading: reducers.isLoading,
+  allowUserInteraction: reducers.allowUserInteraction,
   routing: routerReducer
 });
 
@@ -18,5 +19,4 @@ const store = createStore(reducer, defaultState, compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
 ));
 
-// window.store = store;
 export default store;
