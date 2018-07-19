@@ -40,15 +40,16 @@
   flex: 1 0 220px;
 }
 
-.flex-outer li input {
-  padding: 15px;
+.flex-outer li input, 
+.flex-outer li textarea {
+  padding: 5px;
   color: #4e75b9;
+  font: normal 18px/1.5 'Crimson Text', serif;
 }
 
 .flex-outer li textarea {
-   padding: 15px;
-   color: #4e75b9;
    border-style: ridge;
+   margin-bottom: 0px;
   }
 
 .flex-outer li button {
@@ -64,11 +65,41 @@
   letter-spacing: .09em;
   border-radius: 2px;
   font-size: smaller;
+  cursor: pointer;
+}
+
+.flex-outer li p {
+  margin: 0px;
+  width: '100%';
+  color: 'red';
 }
 
 .form {
   color: #4e75b9;
   margin-top: 20px;
+}
+
+.loading {
+  opacity: 0.5;
+  pointer-events: none;
+  outline: none;
+}
+
+.disabled {
+  background: #ccc !important;
+  cursor: not-allowed;
+}
+
+.error {
+  border-color: red;
+  border-style: ridge;
+  border-width: 1px;
+}
+
+.mandatory-message {
+  color: red;
+  width: 100%;
+  margin: 0px;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */

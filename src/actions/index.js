@@ -1,29 +1,38 @@
 import * as actionEvents from './events';
+import { delay } from '../helpers/index';
 
-export function setData (data) {
+const setData = (data) => {
   return {
     type: actionEvents.SET_DATA,
     payload: data
   };
 }
 
-export function fetchData (data) {
-  return {
-    type: actionEvents.SET_DATA,
-    payload: data
-  };
-}
-
-export function setLoading (isLoading) {
+const setLoading = (isLoading) => {
   return {
     type: actionEvents.SET_IS_LOADING,
     payload: isLoading
   };
 }
 
-export function submitData () {
-  return function (dispatch) {
-    dispatch(setLoading(true));
-    setTimeout(() => {console.log('set timeout setting loading to false'); dispatch(setLoading(false));}, 5000);
+const setLoadingAndData = (data) => {
+  return {
+    type: actionEvents.SET_LOADING_AND_DATA,
+    payload: data
   };
+}
+
+const submitData = (data) => {
+  return function (dispatch) {
+    dispatch(setLoadingAndData({isLoading: true, formData: data}));
+    delay(5000).then( (result) => {
+      dispatch(setLoading(result))
+    })
+  };
+}
+
+export {
+  setData,
+  setLoading,
+  submitData
 }

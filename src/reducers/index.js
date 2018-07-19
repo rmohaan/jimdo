@@ -7,6 +7,10 @@ const data = (state, action) => {
   if (actionType === actionEvents.SET_DATA) {
     newState = action.payload;
   }
+
+  if (actionType === actionEvents.SET_LOADING_AND_DATA) {
+    newState = action.payload.formData;
+  }
   return newState;
 }
 
@@ -23,8 +27,13 @@ const allowUserInteraction = (state, action) => {
 const isLoading = (state, action) => {
     let actionType = action.type,
       newState = state ? state : false;
+    
     if (actionType === actionEvents.SET_IS_LOADING) {
       newState = action.payload;
+    }
+
+    if (actionType === actionEvents.SET_LOADING_AND_DATA) {
+      newState = action.payload.isLoading;
     }
     return newState;
 }
