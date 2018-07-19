@@ -1,3 +1,5 @@
+/*global global*/
+/*eslint no-undef: "error"*/
 'use stricts';
 
 import jsdom from 'jsdom';

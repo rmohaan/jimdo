@@ -1,9 +1,4 @@
-This is the Jimdo Form trial project.
-It was setup with [create-react-app-typescript](https://github.com/wmonk/create-react-app-typescript)
-
-The project already includes a setup for react with redux and thunk.
-
-## Task
+## Task Requirement
 Please build a responsive form. The form should include a Name, EMail and Message field.
 The labels should be next to the inputs on a big screen and above on a small screen (<= 600px).
 
@@ -14,10 +9,10 @@ Please add a test that checks if the form submits its data when the submit butto
 You are totally free in deciding how you build this. If anything is unclear to you, just make an assumption and proceed with what you think makes sense. 
 
 #### Setup
-`yarn`
+`npm install`
 
 #### Start
-`yarn start`
+`npm run start`
 
 #### Run tests
-`yarn test`
+`npm test`

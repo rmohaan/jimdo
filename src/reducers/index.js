@@ -12,7 +12,7 @@ const data = (state, action) => {
     newState = action.payload.formData;
   }
   return newState;
-}
+};
 
 const allowUserInteraction = (state, action) => {
   let actionType = action.type,
@@ -22,24 +22,24 @@ const allowUserInteraction = (state, action) => {
     newState = action.payload;
   }
   return newState;
-}
+};
 
 const isLoading = (state, action) => {
-    let actionType = action.type,
-      newState = state ? state : false;
+  let actionType = action.type,
+    newState = state ? state : false;
     
-    if (actionType === actionEvents.SET_IS_LOADING) {
-      newState = action.payload;
-    }
+  if (actionType === actionEvents.SET_IS_LOADING) {
+    newState = action.payload;
+  }
 
-    if (actionType === actionEvents.SET_LOADING_AND_DATA) {
-      newState = action.payload.isLoading;
-    }
-    return newState;
-}
+  if (actionType === actionEvents.SET_LOADING_AND_DATA) {
+    newState = action.payload.isLoading;
+  }
+  return newState;
+};
 
 export {
   data,
   allowUserInteraction,
   isLoading
-}
+};

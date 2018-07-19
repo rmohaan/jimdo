@@ -1,7 +1,8 @@
 /* global describe, it  */
 
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import expect from 'expect';
+
 import { mount } from 'enzyme';
 import Provider from './utils/provider';
 import Form from '../components/form/index';
@@ -24,8 +25,8 @@ describe('<Form /> testing', () => {
   it('Should submit the data in the form to store', () => {
     expect(wrapper.find('Form').props().data).toEqual({});
 
-    wrapper.find("input").at(0).simulate('change', {target: {value: 'raja'}});
-    wrapper.find("input").at(1).simulate('change', {target: {value: 'raja@gmail.com'}});
+    wrapper.find('input').at(0).simulate('change', {target: {value: 'raja'}});
+    wrapper.find('input').at(1).simulate('change', {target: {value: 'raja@gmail.com'}});
     wrapper.find('textarea').at(0).simulate('change', {target: {value: 'raja'}});
     wrapper.find('button').simulate('click');
 

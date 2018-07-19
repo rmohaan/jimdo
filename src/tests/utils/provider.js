@@ -12,7 +12,7 @@ configure({ adapter: new Adapter() });
 class TestStoreProvider extends React.Component {
   render () {
     return (
-      <Provider store={store}>
+      <Provider store={ store }>
         {this.props.children}
       </Provider>
     );

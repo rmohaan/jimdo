@@ -68,10 +68,10 @@
   cursor: pointer;
 }
 
-.flex-outer li p {
+p {
   margin: 0px;
-  width: '100%';
-  color: 'red';
+  width: 100%;
+  color: red;
 }
 
 .form {
