@@ -1,5 +1,5 @@
 export default {
   isLoading: false,
-  allowUserInteraction: true,
+  isSubmitted: false,
   data: {}
 };

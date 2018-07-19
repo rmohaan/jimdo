@@ -1,16 +1,9 @@
 import * as actionEvents from './events';
 import { delay } from '../helpers/index';
 
-const setData = (data) => {
+const setLoadingAndSubmitted = (isLoading) => {
   return {
-    type: actionEvents.SET_DATA,
-    payload: data
-  };
-};
-
-const setLoading = (isLoading) => {
-  return {
-    type: actionEvents.SET_IS_LOADING,
+    type: actionEvents.SET_LOADING_AND_SUBMITTED,
     payload: isLoading
   };
 };
@@ -24,15 +17,14 @@ const setLoadingAndData = (data) => {
 
 const submitData = (data) => {
   return function (dispatch) {
-    dispatch(setLoadingAndData({isLoading: true, formData: data}));
+    dispatch(setLoadingAndData({isLoading: true, formData: data, isSubmitted: false}));
     delay(5000, false).then((result) => {
-      dispatch(setLoading(result));
+      dispatch(setLoadingAndSubmitted({isLoading: result, isSubmitted: true}));
     });
   };
 };
 
 export {
-  setData,
-  setLoading,
+  setLoadingAndSubmitted,
   submitData
 };

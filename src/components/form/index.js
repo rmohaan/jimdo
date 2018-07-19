@@ -86,13 +86,13 @@ class Form extends React.Component {
     }
   
     render() {
-        const {isLoading} = this.props;
+        const {isLoading, isSubmitted} = this.props;
         const {formValid, nameValid, emailValid, messageValid} = this.state;
         let formStyle = classnames('form', {loading: isLoading}),
             buttonStyle = classnames({disabled: isLoading}),
-            nameErrorStyle = classnames({error: !nameValid}),
-            emailErrorStyle = classnames({error: !emailValid}),
-            messageErrorStyle = classnames({error: !messageValid});
+            nameErrorStyle = classnames({'error-input-controls': !nameValid}),
+            emailErrorStyle = classnames({'error-input-controls': !emailValid}),
+            messageErrorStyle = classnames({'error-input-controls': !messageValid});
         return (
             <form className={ formStyle } onKeyDown={ this.onKeyDown }>
                 <Loader loaded={ !isLoading } options={ options }/>
@@ -131,7 +131,8 @@ class Form extends React.Component {
                         />
                     </li>
                     <li>
-                        { !formValid ? <p>All fields are mandatory</p> : '' }
+                        { !formValid ? <p className="error">All fields are mandatory</p> : '' }
+                        { isSubmitted && formValid ? <p className="success">Your details have been submitted succesfully.</p> : '' }
                     </li>
                     <li>
                         <button type="button" className={ buttonStyle } onClick={ this.handleSubmit } disabled={ isLoading }>Submit</button>
@@ -142,8 +143,8 @@ class Form extends React.Component {
     }
 }
 
-const mapStateToProps = ({ data, isLoading}) =>
-    ({ data, isLoading });
+const mapStateToProps = ({ data, isLoading, isSubmitted}) =>
+    ({ data, isLoading, isSubmitted });
 
 Form.propTypes = {
     isLoading: PropTypes.bool

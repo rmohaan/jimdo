@@ -18,7 +18,7 @@ describe('<Form /> testing', () => {
 
   it('Should show validation error if validation fails while submitting the form', () => {
     wrapper.find('button').simulate('click');
-    expect(wrapper.find('.error').length).toBe(3);
+    expect(wrapper.find('.error-input-controls').length).toBe(3);
     expect(wrapper.find('p').length).toBe(1);
   });
 

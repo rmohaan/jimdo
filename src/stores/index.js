@@ -8,7 +8,7 @@ import defaultState from './defaultState';
 const reducer = combineReducers({
   data: reducers.data,
   isLoading: reducers.isLoading,
-  allowUserInteraction: reducers.allowUserInteraction,
+  isSubmitted: reducers.isSubmitted,
   routing: routerReducer
 });
 
