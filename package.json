@@ -2,6 +2,10 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "6.1.0",
+    "node": "10.4.1"
+  },
   "dependencies": {
     "classnames": "^2.2.6",
     "prop-types": "^15.6.2",
